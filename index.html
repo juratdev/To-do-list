@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://unpkg.com/vue@next"></script>
+    <script defer src="./app.js"></script>
+</head>
+
+<body>
+    <div id="app" class="wrapper">
+        <div class="todo__list">
+            <div class="todo__list-input">
+                <input id="input" @keyup.enter="handleInput" type="text" v-model="inputValue" placeholder="To do list...">
+                <button id="add" @click="handleInput()">Qo'shish</button>
+            </div>
+            <h3 v-if="todos.length === 0">To do list bo'sh.</h3>
+            <ul>
+                <li v-for="todo in todos">{{ todo }}</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
